@@ -27,5 +27,6 @@ metadata:
   name: bitnami
   namespace: kube-system
 spec:
+  type: oci
   interval: 5m0s
   url: oci://registry-1.docker.io/bitnamicharts
