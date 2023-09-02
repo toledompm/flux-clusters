@@ -20,6 +20,7 @@ spec:
     provider: cloudflare
     cloudflare:
       secretName: external-dns-cf-token
+    txtPrefix: external-dns
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
