@@ -1,3 +1,11 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: project-manager
+    pod-security.kubernetes.io/enforce: privileged
+  name: project-manager
+---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
