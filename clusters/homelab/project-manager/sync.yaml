@@ -1,0 +1,25 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: project-manager
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  secretRef:
+    name: flux-system
+  url: ssh://git@github.com/toledompm/k8s-project-manager.git
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: project-manager
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./namespaces
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: project-manager
