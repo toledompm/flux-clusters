@@ -16,6 +16,19 @@ spec:
   upgrade:
     remediation:
       remediateLastFailure: true
+  values:
+    service:
+      type: NodePort
+      spec:
+        ports:
+        - nodePort: 32222
+          port: 8443
+          protocol: TCP
+          targetPort: 8443
+        - nodePort: 32221
+          port: 8000
+          protocol: TCP
+          targetPort: 8000
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
